@@ -1,0 +1,24 @@
+/* =============
+    Base
+============= */
+.gs-dev-tools{
+    z-index: 7000;
+}
+
+figure{
+    padding: 0;
+    margin: 0;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    li{
+        list-style: none;
+    }
+}
+
+body{
+    background-color: #F2EBE1;
+    padding: 15px;
+}

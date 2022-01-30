@@ -1,0 +1,39 @@
+#preloader{
+    display: grid;
+    grid-template-columns: auto 90vw auto;
+    grid-template-areas: ". preloader .";
+    background-color: #F2EBE1;
+    
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: 5000;
+
+    @include md{
+        grid-template-columns: auto 80vw auto;
+    }
+
+    @include lg{
+        grid-template-columns: auto 70vw auto;
+    }
+
+    @include xl{
+        grid-template-columns: auto 50vw auto;
+    }
+
+    >div{
+        grid-area: preloader;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg{
+            width: 80%;
+
+            #Right-Surfboard-First, #Left-Surfboard-First, #Base-Line, #Step-Two, #Final, #Right-Surfboard-Second, #Left-Surfboard-Second, #Right-Surfboard-Third, #Left-Surfboard-Third, #Right-Ellipse-Second, #Left-Ellipse-Second, #Right-Ellipse-Third, #Left-Ellipse-Third, #First-Mask, #Last-Mask, #Left-Ellipse, #Right-Ellipse, #Right-Ellipse-2, #Left-Ellipse-2, #First-Left-Small, #First-Right-Small{
+                visibility: hidden;
+            }
+        }
+    }
+}

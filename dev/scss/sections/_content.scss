@@ -1,0 +1,18 @@
+#content{
+    height: 402px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2EBE1;
+
+    p{
+        width: 576px;
+        height: 90px;
+        text-align: center;
+        color: #B22D00;
+        font-family: Jost;
+        font-style: normal;
+        font-weight: normal;
+        font-size: rem-calc(12px);
+    }
+}
