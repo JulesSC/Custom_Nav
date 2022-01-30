@@ -1,18 +1,43 @@
-#content{
-    height: 402px;
+main{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F2EBE1;
-
-    p{
-        width: 576px;
-        height: 90px;
-        text-align: center;
-        color: #B22D00;
-        font-family: Jost;
-        font-style: normal;
-        font-weight: normal;
-        font-size: rem-calc(12px);
+    height: 100vh;
+    overflow: hidden;
+    // box-sizing: border-box;
+    div{
+        width: 50vw;
+        img{
+            width: 100%;
+        }
+    }
+    section{
+        width: 42vw;
+        background-color: #381113;
+        font-family: GT Flexa Mono Trial;
+        padding: 4vw;
+        div{
+            height: 100%;
+            color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-end;
+            gap: 30px;
+            h1{
+                width: 75%; 
+                font-size: 112px;
+                line-height: 85%;
+                letter-spacing: -4.5%;
+                font-weight: 700;
+            }
+            h2{
+                font-size: 32px;
+                font-weight: 300;
+                line-height: 108%;
+            }
+            p{
+                width: 75%; 
+                font-size: 32px;
+                font-weight: 700;
+            }
+        }
     }
 }

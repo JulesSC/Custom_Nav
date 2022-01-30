@@ -362,11 +362,6 @@ ul li {
   list-style: none;
 }
 
-body {
-  background-color: #F2EBE1;
-  padding: 15px;
-}
-
 /* =============
     Typography
 ============= */
@@ -411,123 +406,51 @@ textarea {
     Header
 ============= */
 header {
-  width: 100%;
-  height: 112px;
-  margin: 0px;
-  padding: 0px;
-  background-color: transparent;
-  position: relative;
-  z-index: 1000;
-}
-header > div {
-  padding: 10px 223px;
-  background-color: white;
-  border-radius: 20px 20px 0px 0px;
-}
-header ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: Futura;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 19px;
-  text-align: center;
-}
-header ul li a:link,
-header ul li a:visited {
-  color: #B22D00;
-  transition: 0.25s;
-}
-header ul li a:hover,
-header ul li a:active {
-  color: black;
+  width: 50%;
 }
 
 /* =============
     Footer
 ============= */
-#preloader {
-  display: grid;
-  grid-template-columns: auto 90vw auto;
-  grid-template-areas: ". preloader .";
-  background-color: #F2EBE1;
-  position: absolute;
+main {
+  display: flex;
   height: 100vh;
+  overflow: hidden;
+}
+main div {
+  width: 50vw;
+}
+main div img {
   width: 100%;
-  z-index: 5000;
 }
-@media (min-width: 768px) {
-  #preloader {
-    grid-template-columns: auto 80vw auto;
-  }
+main section {
+  width: 42vw;
+  background-color: #381113;
+  font-family: GT Flexa Mono Trial;
+  padding: 4vw;
 }
-@media (min-width: 992px) {
-  #preloader {
-    grid-template-columns: auto 70vw auto;
-  }
-}
-@media (min-width: 1200px) {
-  #preloader {
-    grid-template-columns: auto 50vw auto;
-  }
-}
-#preloader > div {
-  grid-area: preloader;
+main section div {
   height: 100%;
+  color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  gap: 30px;
 }
-#preloader > div svg {
-  width: 80%;
+main section div h1 {
+  width: 75%;
+  font-size: 112px;
+  line-height: 85%;
+  letter-spacing: -4.5%;
+  font-weight: 700;
 }
-#preloader > div svg #Right-Surfboard-First, #preloader > div svg #Left-Surfboard-First, #preloader > div svg #Base-Line, #preloader > div svg #Step-Two, #preloader > div svg #Final, #preloader > div svg #Right-Surfboard-Second, #preloader > div svg #Left-Surfboard-Second, #preloader > div svg #Right-Surfboard-Third, #preloader > div svg #Left-Surfboard-Third, #preloader > div svg #Right-Ellipse-Second, #preloader > div svg #Left-Ellipse-Second, #preloader > div svg #Right-Ellipse-Third, #preloader > div svg #Left-Ellipse-Third, #preloader > div svg #First-Mask, #preloader > div svg #Last-Mask, #preloader > div svg #Left-Ellipse, #preloader > div svg #Right-Ellipse, #preloader > div svg #Right-Ellipse-2, #preloader > div svg #Left-Ellipse-2, #preloader > div svg #First-Left-Small, #preloader > div svg #First-Right-Small {
-  visibility: hidden;
+main section div h2 {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 108%;
 }
-
-#hero {
-  background-image: url("../img/hero/hero.jpg");
-  height: 930px;
-  width: 100%;
-  border-radius: 20px;
-  background-size: cover;
-  background-position: center;
-  margin-top: -112px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#hero #hero-body {
-  color: #fff;
-  font-family: Jost;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.125rem;
-}
-#hero #hero-body section {
-  margin: 0px 155px;
-}
-#hero #hero-body h1 {
-  text-align: center;
-  margin: 28px 0px;
-}
-
-#content {
-  height: 402px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #F2EBE1;
-}
-#content p {
-  width: 576px;
-  height: 90px;
-  text-align: center;
-  color: #B22D00;
-  font-family: Jost;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 0.75rem;
+main section div p {
+  width: 75%;
+  font-size: 32px;
+  font-weight: 700;
 }
