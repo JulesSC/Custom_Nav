@@ -28,15 +28,21 @@ header{
             right: 20px;
 
             #burger{
-                // position:relative;
-                // height: 100px;
                 display: flex;
+                flex-flow: column nowrap;
                 align-items: center;
                 justify-content: flex-end;
+                gap: 10px;
 
-                svg{
-                    height: 100%;
+                span{
+                    height: 5px;
+                    width: 68px;
+                    background-color: white;
                 }
+
+                // svg{
+                //     height: 100%;
+                // }
             }
         }
 
@@ -45,7 +51,6 @@ header{
             grid-area: nav;
             align-items: center;
             display: flex;
-            // padding: 4vw;
             height: 100vh;
             position: absolute;
             top: 0px;
