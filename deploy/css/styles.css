@@ -445,7 +445,7 @@ header > div #nav-container ul li a:visited {
   text-decoration: none;
   font-family: GT Flexa Mono Trial;
   font-size: 64px;
-  font-weight: 400;
+  font-weight: 300;
   transition: 0.5s;
 }
 header > div #nav-container ul li a:link:hover, header > div #nav-container ul li a:link:active,
