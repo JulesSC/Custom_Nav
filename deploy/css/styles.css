@@ -407,13 +407,43 @@ textarea {
 ============= */
 header {
   width: 100vw;
-  background-color: black;
+  left: 0px;
+  top: 0px;
+  background-color: #000000;
+}
+header > div {
+  display: grid;
+  grid-template-areas: ". burger" ". nav";
+  grid-template-columns: 50% auto;
+}
+header > div #burger-container {
   align-items: center;
   display: flex;
   justify-content: flex-end;
+  grid-area: burger;
 }
-header svg {
-  padding: 2%;
+header > div #burger-container #burger {
+  position: relative;
+  z-index: 10000;
+  height: 100%;
+}
+header > div #burger-container #burger svg {
+  height: 100%;
+}
+header > div #nav-container {
+  background-color: transparent;
+  grid-area: nav;
+}
+header > div #nav-container ul li a:link,
+header > div #nav-container ul li a:visited {
+  color: white;
+  text-decoration: none;
+  transition: 0.25s;
+}
+header > div #nav-container ul li a:link:hover, header > div #nav-container ul li a:link:active,
+header > div #nav-container ul li a:visited:hover,
+header > div #nav-container ul li a:visited:active {
+  color: white;
 }
 
 /* =============

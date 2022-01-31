@@ -3,13 +3,52 @@
 ============= */
 header{
     width: 100vw;
-    background-color: black;
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
-    // margin-bottom: -5%;
-    // z-index: 1000;
-    svg{
-        padding: 2%;
+    left: 0px;
+    top: 0px;
+    background-color: #000000;
+    
+    >div {
+        display: grid;
+        grid-template-areas:
+            ". burger"
+            ". nav";
+        grid-template-columns: 50% auto;
+
+        #burger-container {
+            align-items: center;
+            display: flex;
+            justify-content: flex-end;
+            grid-area: burger;
+
+            #burger{
+                position:relative;
+                z-index: 10000;
+                height: 100%;
+
+                svg{
+                    height: 100%;
+                }
+            }
+        }
+
+        #nav-container {
+            background-color: transparent;
+            grid-area: nav;
+            ul{
+                li{
+                    a:link,
+                    a:visited {
+                        color: white;
+                        text-decoration: none;
+                        transition: 0.25s;
+
+                        &:hover,
+                        &:active {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
