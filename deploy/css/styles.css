@@ -417,15 +417,14 @@ header > div {
   grid-template-columns: 50% auto;
 }
 header > div #burger-container {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   grid-area: burger;
 }
 header > div #burger-container #burger {
   position: relative;
   z-index: 10000;
-  height: 100px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -434,22 +433,28 @@ header > div #burger-container #burger svg {
   height: 100%;
 }
 header > div #nav-container {
-  background-color: transparent;
+  background-color: white;
   grid-area: nav;
   align-items: center;
   display: flex;
-  justify-content: flex-end;
+  padding: 4vw;
 }
 header > div #nav-container ul li a:link,
 header > div #nav-container ul li a:visited {
-  color: white;
+  color: #381113;
   text-decoration: none;
-  transition: 0.25s;
+  font-family: GT Flexa Mono Trial;
+  font-size: 64px;
+  font-weight: 400;
+  transition: 0.5s;
 }
 header > div #nav-container ul li a:link:hover, header > div #nav-container ul li a:link:active,
 header > div #nav-container ul li a:visited:hover,
 header > div #nav-container ul li a:visited:active {
-  color: white;
+  color: #381113;
+  font-family: GT Flexa Mono Trial;
+  font-size: 82px;
+  font-weight: 700;
 }
 
 /* =============
