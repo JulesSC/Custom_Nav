@@ -2,10 +2,11 @@
     Header
 ============= */
 header{
-    width: 100vw;
+    // width: 100vw;
     left: 0px;
     top: 0px;
     background-color: #000000;
+    padding: 2%;
     
     >div {
         display: grid;
@@ -23,7 +24,10 @@ header{
             #burger{
                 position:relative;
                 z-index: 10000;
-                height: 100%;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
 
                 svg{
                     height: 100%;
@@ -34,6 +38,10 @@ header{
         #nav-container {
             background-color: transparent;
             grid-area: nav;
+            align-items: center;
+            display: flex;
+            justify-content: flex-end;
+            
             ul{
                 li{
                     a:link,
