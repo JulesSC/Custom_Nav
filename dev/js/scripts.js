@@ -28,6 +28,6 @@ for(let i = 0; i < navButtons.length; i++){
 
 console.log(navButtons);
 
-window.addEventListener('resize', displayWindowSize);
+// window.addEventListener('resize', displayWindowSize);
 
 window.addEventListener('load', displayWindowSize);

@@ -362,6 +362,10 @@ ul li {
   list-style: none;
 }
 
+body {
+  position: relative;
+}
+
 /* =============
     Typography
 ============= */
@@ -406,14 +410,7 @@ textarea {
     Header
 ============= */
 header {
-  left: 0px;
-  top: 0px;
   background-color: transparent;
-}
-header > div {
-  display: grid;
-  grid-template-areas: ". burger" ". nav";
-  grid-template-columns: 50% auto;
 }
 header > div #burger-container {
   display: flex;
@@ -421,10 +418,12 @@ header > div #burger-container {
   justify-content: flex-end;
   grid-area: burger;
   padding: 2%;
+  position: absolute;
+  z-index: 10000;
+  top: 20px;
+  right: 20px;
 }
 header > div #burger-container #burger {
-  position: relative;
-  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -437,8 +436,14 @@ header > div #nav-container {
   grid-area: nav;
   align-items: center;
   display: flex;
-  padding: 4vw;
   height: 100vh;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 50vw;
+}
+header > div #nav-container ul {
+  padding: 4vw;
 }
 header > div #nav-container ul li {
   height: 100px;
@@ -469,12 +474,12 @@ main {
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
-  margin-top: -128vh;
 }
-main div {
+main > div {
   width: 50vw;
+  overflow: hidden;
 }
-main div img {
+main > div img {
   width: 100%;
 }
 main section {

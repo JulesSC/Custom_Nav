@@ -3,18 +3,18 @@
 ============= */
 header{
     // width: 100vw;
-    left: 0px;
-    top: 0px;
+    // left: 0px;
+    // top: 0px;
     // background-color: #000000;
     // padding: 2%;
     background-color: transparent;
     
     >div {
-        display: grid;
-        grid-template-areas:
-            ". burger"
-            ". nav";
-        grid-template-columns: 50% auto;
+        // display: grid;
+        // grid-template-areas:
+        //     ". burger"
+        //     ". nav";
+        // grid-template-columns: 50% auto;
 
         #burger-container {
             display: flex;
@@ -22,10 +22,13 @@ header{
             justify-content: flex-end;
             grid-area: burger;
             padding: 2%;
+            position:absolute;
+            z-index: 10000;
+            top: 20px;
+            right: 20px;
 
             #burger{
-                position:relative;
-                z-index: 10000;
+                // position:relative;
                 // height: 100px;
                 display: flex;
                 align-items: center;
@@ -42,10 +45,15 @@ header{
             grid-area: nav;
             align-items: center;
             display: flex;
-            padding: 4vw;
+            // padding: 4vw;
             height: 100vh;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 50vw;
             
             ul{
+                padding: 4vw;
                 li{
                     height: 100px;
                     a:link,

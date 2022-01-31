@@ -3,9 +3,11 @@ main{
     height: 100vh;
     overflow: hidden;
     box-sizing: border-box;
-    margin-top: -128vh;
-    div{
+    // margin-top: -128vh;
+    >div{
+        // background-image: url("../img/splash.jpg");
         width: 50vw;
+        overflow: hidden;
         img{
             width: 100%;
         }
