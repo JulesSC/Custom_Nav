@@ -5,8 +5,9 @@ header{
     // width: 100vw;
     left: 0px;
     top: 0px;
-    background-color: #000000;
+    // background-color: #000000;
     padding: 2%;
+    background-color: transparent;
     
     >div {
         display: grid;
@@ -41,10 +42,11 @@ header{
             align-items: center;
             display: flex;
             padding: 4vw;
-            // height: 100vh;
+            height: 100vh;
             
             ul{
                 li{
+                    height: 100px;
                     a:link,
                     a:visited {
                         color: #381113;

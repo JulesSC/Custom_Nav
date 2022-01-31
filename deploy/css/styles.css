@@ -408,8 +408,8 @@ textarea {
 header {
   left: 0px;
   top: 0px;
-  background-color: #000000;
   padding: 2%;
+  background-color: transparent;
 }
 header > div {
   display: grid;
@@ -438,6 +438,10 @@ header > div #nav-container {
   align-items: center;
   display: flex;
   padding: 4vw;
+  height: 100vh;
+}
+header > div #nav-container ul li {
+  height: 100px;
 }
 header > div #nav-container ul li a:link,
 header > div #nav-container ul li a:visited {
@@ -465,6 +469,7 @@ main {
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
+  margin-top: -128vh;
 }
 main div {
   width: 50vw;
