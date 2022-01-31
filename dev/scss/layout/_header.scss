@@ -6,7 +6,7 @@ header{
     left: 0px;
     top: 0px;
     // background-color: #000000;
-    padding: 2%;
+    // padding: 2%;
     background-color: transparent;
     
     >div {
@@ -21,6 +21,7 @@ header{
             align-items: center;
             justify-content: flex-end;
             grid-area: burger;
+            padding: 2%;
 
             #burger{
                 position:relative;

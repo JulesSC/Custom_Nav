@@ -408,7 +408,6 @@ textarea {
 header {
   left: 0px;
   top: 0px;
-  padding: 2%;
   background-color: transparent;
 }
 header > div {
@@ -421,6 +420,7 @@ header > div #burger-container {
   align-items: center;
   justify-content: flex-end;
   grid-area: burger;
+  padding: 2%;
 }
 header > div #burger-container #burger {
   position: relative;
