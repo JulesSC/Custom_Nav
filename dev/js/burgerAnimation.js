@@ -1,7 +1,4 @@
 import { gsap } from "gsap";
-import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
-
-gsap.registerPlugin(DrawSVGPlugin);
 
 (function() {
     const blurProperty = gsap.utils.checkPrefix("filter"),
