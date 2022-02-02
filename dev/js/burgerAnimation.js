@@ -35,21 +35,83 @@ import { gsap } from "gsap";
     });
   })();
 
+const burgerBtn = document.querySelector("#burger-container");
+
 gsap.set(".burger-lines", {transformOrigin:"center"});
 
-const topTL = new gsap.timeline();
-topTL.to(".burger-lines:nth-child(1)", {duration: 0.25, y:"+=8", backgroundColor: "rgba(56, 17, 19, 1)"})
-.to(".burger-lines:nth-child(1)", {duration: 0.25, rotation: 45});
+let isMenuOpen = false;
+let burgerAnimation = gsap.timeline({paused:true});
 
-const bottomTL = new gsap.timeline();
-bottomTL.to(".burger-lines:nth-child(2)", {duration: 0.25, y:"-=8", backgroundColor: "rgba(56, 17, 19, 1)"})
-.to(".burger-lines:nth-child(2)", {duration: 0.25, rotation: -45});
+burgerAnimation.to(".burger-lines",{duration:0.25, scaleX:0.75})
+// .to("#splash", {duration: 0.25, blur:1, ease: "power1.out"})
+.addPause("backToLines")
+.addLabel("openMenu")
+.to("#top-line",{duration:0.25, rotation:-45,y:"-=2", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
+.to("#bottom-line",{duration:0.25, rotation:45,y:"+=2", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
+.to("#splash", {duration: 0.25, scale: 3, blur:2, ease: "power1.out"}, "cross")
+.addPause()
+.addLabel("closeMenu")
+.to("#top-line",{duration:0.25, rotation:0,y:"+=2", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
+.to("#bottom-line",{duration:0.25, rotation:0,y:"-=2", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
+.to("#splash", {duration: 0.25, scale: 1, blur:0, ease: "power1.out"}, "uncross")
 
-const imageTL = new gsap.timeline();
-imageTL.to("#splash", {duration: 0.25, scale: 3, blur:2, ease: "power1.out"});
+export function burgerActions(){
+  burgerBtn.addEventListener("mouseenter",() =>{
+      console.log("enter");
+      console.log(burgerBtn.classList.contains("selected"));
 
-export const burgerTL = new gsap.timeline({paused:true});
+      //check to see if the class of selected is on the burger container, and if so don't allow the mouse enter animation
+      if(!burgerBtn.classList.contains("selected")){
+          burgerAnimation.play();
+      }
+  });
+  
+  burgerBtn.addEventListener("mouseleave",() =>{
+      console.log("leave");
+      //check to see if the class of selected is on the burger container, and if so don't allow the mouse enter animation
+      if(!burgerBtn.classList.contains("selected")){
+          burgerAnimation.reverse("backToLines");
+      }
+  });
 
-burgerTL.add(topTL, "burger")
-.add(bottomTL, "burger")
-.add(imageTL, "burger");
+  burgerBtn.addEventListener("click",(e) =>{
+      console.log("click");
+      // call the resize function
+      // resizePage(isMenuOpen);
+      
+      if(isMenuOpen === false){
+          // animate the burger into an X
+          burgerAnimation.play("openMenu");
+          // add a class to the burger container of selected
+          burgerBtn.classList.add("selected");
+          isMenuOpen = true;
+      }else{
+          e.preventDefault;
+          // animate the burger into an X
+          burgerAnimation.play("closeMenu");
+          // add a class to the burger container of selected
+          burgerBtn.classList.remove("selected");
+          isMenuOpen = false;
+      }
+  });
+}
+
+
+
+
+// const topTL = new gsap.timeline();
+// topTL.to(".burger-lines:nth-child(1)", {duration: 0.25, y:"+=8", backgroundColor: "rgba(56, 17, 19, 1)"})
+// .to(".burger-lines:nth-child(1)", {duration: 0.25, rotation: 45});
+
+// const bottomTL = new gsap.timeline();
+// bottomTL.to(".burger-lines:nth-child(2)", {duration: 0.25, y:"-=8", backgroundColor: "rgba(56, 17, 19, 1)"})
+// .to(".burger-lines:nth-child(2)", {duration: 0.25, rotation: -45});
+
+// const imageTL = new gsap.timeline();
+// imageTL.to("#splash", {duration: 0.25, scale: 3, blur:2, ease: "power1.out"});
+
+// export const burgerTL = new gsap.timeline({paused:true});
+
+// burgerTL.add(topTL, "burger")
+// .add(bottomTL, "burger")
+// .add(imageTL, "burger");
