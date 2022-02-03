@@ -12,12 +12,12 @@ export function menuListners (){
     links.forEach((link, i) => {
         link.addEventListener("mouseenter", ()=>{
             console.log("mouse enter");
-            gsap.to(links[i],{scale:2,duration:0.25, fontWeight:700});
+            gsap.to(links[i],{duration:0.25, fontWeight:700});
         })
 
         link.addEventListener("mouseleave", ()=>{
             console.log("mouse leave");
-            gsap.to(links[i],{scale:1,duration:0.25, fontWeight:300});
+            gsap.to(links[i],{duration:0.25, fontWeight:300});
         })
     });
 
