@@ -1,6 +1,4 @@
 import { burgerActions } from "./burgerAnimation";
-import { displayWindowSize } from "./mobileResizing";
-// import { menuAnimation } from "./mobileMenu";
 
 // var burgerButton = document.querySelector("#burger");
 
@@ -28,11 +26,7 @@ import { displayWindowSize } from "./mobileResizing";
 
 // console.log(navButtons);
 
-window.addEventListener('resize', displayWindowSize);
-
-window.addEventListener('load', displayWindowSize);
 
 window.addEventListener('load', function () {
     burgerActions();
-    // createGallery();
 })
