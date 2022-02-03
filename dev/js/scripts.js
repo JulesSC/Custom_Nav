@@ -1,5 +1,7 @@
 import { burgerActions } from "./burgerAnimation";
 
+import { menuListners } from "./menu"
+
 // var burgerButton = document.querySelector("#burger");
 
 // let canISeeMenu = false;
@@ -29,4 +31,5 @@ import { burgerActions } from "./burgerAnimation";
 
 window.addEventListener('load', function () {
     burgerActions();
+    menuListners();
 })

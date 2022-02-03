@@ -56,7 +56,10 @@ header{
             ul{
                 padding: 4vw;
                 li{
-                    height: 100px;
+                    // height: 100px;
+                    overflow: hidden;
+                    border: 1px solid red;
+                    margin-bottom: 40px;
                     a:link,
                     a:visited {
                         color: #381113;
@@ -65,14 +68,15 @@ header{
                         font-size: 64px;
                         font-weight: 300;
                         transition: 0.5s;
+                        display: inline-block;
 
-                        &:hover,
-                        &:active {
-                            color: #381113;
-                            font-family: GT Flexa Mono Trial;
-                            font-size: 82px;
-                            font-weight: 700;
-                        }
+                        // &:hover,
+                        // &:active {
+                        //     color: #381113;
+                        //     font-family: GT Flexa Mono Trial;
+                        //     font-size: 82px;
+                        //     font-weight: 700;
+                        // }
                     }
                 }
             }

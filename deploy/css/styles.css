@@ -450,7 +450,9 @@ header > div #nav-container ul {
   padding: 4vw;
 }
 header > div #nav-container ul li {
-  height: 100px;
+  overflow: hidden;
+  border: 1px solid red;
+  margin-bottom: 40px;
 }
 header > div #nav-container ul li a:link,
 header > div #nav-container ul li a:visited {
@@ -460,14 +462,7 @@ header > div #nav-container ul li a:visited {
   font-size: 64px;
   font-weight: 300;
   transition: 0.5s;
-}
-header > div #nav-container ul li a:link:hover, header > div #nav-container ul li a:link:active,
-header > div #nav-container ul li a:visited:hover,
-header > div #nav-container ul li a:visited:active {
-  color: #381113;
-  font-family: GT Flexa Mono Trial;
-  font-size: 82px;
-  font-weight: 700;
+  display: inline-block;
 }
 
 /* =============
