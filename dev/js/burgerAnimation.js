@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { menuAnimation } from "./moveMenu";
 
 (function() {
     const blurProperty = gsap.utils.checkPrefix("filter"),
@@ -46,19 +47,18 @@ let isMenuOpen = false;
 let burgerAnimation = gsap.timeline({paused:true});
 
 burgerAnimation.from("#top-line, #bottom-line",{duration:0.25, scaleX:1, ease: "back.out(1)"})
-// .to("#splash", {duration: 0.25, blur:1, ease: "power1.out"})
+.to("#splash", {duration: 0.25, blur:0.5})
 .addPause("backToLines")
 .addLabel("openMenu")
-// .to("#top-line",{duration:0.25, rotation:45,y:"-=2", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
-.to("#top-line",{duration:0.25, rotation:45,y:"-=9", x:"+=10", ease: "back.out(1)"},"cross")
-.to("#middle-line",{duration:0.25, rotation:-45, y:"-=2", ease: "back.out(1)"},"cross")
-.to("#bottom-line",{duration:0.25, rotation:45, y:"+=9", x:"-=10", ease: "back.out(1)"},"cross")
+.to("#top-line",{duration:0.25, rotation:45,y:"-=9", x:"+=10", ease: "back.out(1)", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
+.to("#middle-line",{duration:0.25, rotation:-45, y:"-=2", ease: "back.out(1)", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
+.to("#bottom-line",{duration:0.25, rotation:45, y:"+=9", x:"-=10", ease: "back.out(1)", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
 .to("#splash", {duration: 0.25, scale: 3, blur:2, ease: "power1.out"}, "cross")
 .addPause()
 .addLabel("closeMenu")
-.to("#top-line",{duration:0.25, rotation:0,y:"+=9", x:"-=10", ease: "back.out(1)"},"uncross")
-.to("#middle-line",{duration:0.25, rotation:0, y:"+=2", ease: "back.out(1)"},"uncross")
-.to("#bottom-line",{duration:0.25, rotation:0, y:"-=9", x:"+=10", ease: "back.out(1)"},"uncross")
+.to("#top-line",{duration:0.25, rotation:0,y:"+=9", x:"-=10", ease: "back.out(1)", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
+.to("#middle-line",{duration:0.25, rotation:0, y:"+=2", ease: "back.out(1)", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
+.to("#bottom-line",{duration:0.25, rotation:0, y:"-=9", x:"+=10", ease: "back.out(1)", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
 .to("#splash", {duration: 0.25, scale: 1, blur:0, ease: "power1.out"}, "uncross")
 
 export function burgerActions(){
@@ -70,9 +70,6 @@ export function burgerActions(){
       if(!burgerBtn.classList.contains("selected")){
           burgerAnimation.play();
       }
-      // else{
-      //   burgerAnimation.play("closeMenu");
-      // }
   });
   
   burgerBtn.addEventListener("mouseleave",() =>{
@@ -91,6 +88,7 @@ export function burgerActions(){
       if(isMenuOpen === false){
           // animate the burger into an X
           burgerAnimation.play("openMenu");
+          menuAnimation.play();
           // add a class to the burger container of selected
           burgerBtn.classList.add("selected");
           isMenuOpen = true;
@@ -98,6 +96,7 @@ export function burgerActions(){
           e.preventDefault;
           // animate the burger into an X
           burgerAnimation.play("closeMenu");
+          menuAnimation.reverse();
           // add a class to the burger container of selected
           burgerBtn.classList.remove("selected");
           isMenuOpen = false;
