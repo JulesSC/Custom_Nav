@@ -30,14 +30,14 @@ header{
             #burger{
                 display: flex;
                 flex-flow: column nowrap;
-                align-items: center;
-                justify-content: flex-end;
+                align-content: center;
+                justify-content: center;
                 gap: 10px;
 
                 span{
+                    background-color: white;
                     height: 5px;
                     width: 68px;
-                    background-color: white;
                 }
             }
         }

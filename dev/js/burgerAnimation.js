@@ -37,22 +37,28 @@ import { gsap } from "gsap";
 
 const burgerBtn = document.querySelector("#burger-container");
 
-gsap.set(".burger-lines", {transformOrigin:"center"});
+gsap.set("#top-line", {transformOrigin:"left center", scaleX: 0.5});
+gsap.set("#middle-line", {transformOrigin:"center center"});
+gsap.set("#bottom-line", {transformOrigin:"right center", scaleX: 0.5});
+
 
 let isMenuOpen = false;
 let burgerAnimation = gsap.timeline({paused:true});
 
-burgerAnimation.to(".burger-lines",{duration:0.25, scaleX:0.75})
+burgerAnimation.from("#top-line, #bottom-line",{duration:0.25, scaleX:1, ease: "back.out(1)"})
 // .to("#splash", {duration: 0.25, blur:1, ease: "power1.out"})
 .addPause("backToLines")
 .addLabel("openMenu")
-.to("#top-line",{duration:0.25, rotation:-45,y:"-=2", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
-.to("#bottom-line",{duration:0.25, rotation:45,y:"+=2", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
+// .to("#top-line",{duration:0.25, rotation:45,y:"-=2", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
+.to("#top-line",{duration:0.25, rotation:45,y:"-=9", x:"+=10", ease: "back.out(1)"},"cross")
+.to("#middle-line",{duration:0.25, rotation:-45, y:"-=2", ease: "back.out(1)"},"cross")
+.to("#bottom-line",{duration:0.25, rotation:45, y:"+=9", x:"-=10", ease: "back.out(1)"},"cross")
 .to("#splash", {duration: 0.25, scale: 3, blur:2, ease: "power1.out"}, "cross")
 .addPause()
 .addLabel("closeMenu")
-.to("#top-line",{duration:0.25, rotation:0,y:"+=2", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
-.to("#bottom-line",{duration:0.25, rotation:0,y:"-=2", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
+.to("#top-line",{duration:0.25, rotation:0,y:"+=9", x:"-=10", ease: "back.out(1)"},"uncross")
+.to("#middle-line",{duration:0.25, rotation:0, y:"+=2", ease: "back.out(1)"},"uncross")
+.to("#bottom-line",{duration:0.25, rotation:0, y:"-=9", x:"+=10", ease: "back.out(1)"},"uncross")
 .to("#splash", {duration: 0.25, scale: 1, blur:0, ease: "power1.out"}, "uncross")
 
 export function burgerActions(){
@@ -64,6 +70,9 @@ export function burgerActions(){
       if(!burgerBtn.classList.contains("selected")){
           burgerAnimation.play();
       }
+      // else{
+      //   burgerAnimation.play("closeMenu");
+      // }
   });
   
   burgerBtn.addEventListener("mouseleave",() =>{
@@ -95,23 +104,3 @@ export function burgerActions(){
       }
   });
 }
-
-
-
-
-// const topTL = new gsap.timeline();
-// topTL.to(".burger-lines:nth-child(1)", {duration: 0.25, y:"+=8", backgroundColor: "rgba(56, 17, 19, 1)"})
-// .to(".burger-lines:nth-child(1)", {duration: 0.25, rotation: 45});
-
-// const bottomTL = new gsap.timeline();
-// bottomTL.to(".burger-lines:nth-child(2)", {duration: 0.25, y:"-=8", backgroundColor: "rgba(56, 17, 19, 1)"})
-// .to(".burger-lines:nth-child(2)", {duration: 0.25, rotation: -45});
-
-// const imageTL = new gsap.timeline();
-// imageTL.to("#splash", {duration: 0.25, scale: 3, blur:2, ease: "power1.out"});
-
-// export const burgerTL = new gsap.timeline({paused:true});
-
-// burgerTL.add(topTL, "burger")
-// .add(bottomTL, "burger")
-// .add(imageTL, "burger");
