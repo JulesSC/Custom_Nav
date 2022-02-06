@@ -416,7 +416,6 @@ header > div #burger-container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  grid-area: burger;
   padding: 2%;
   position: absolute;
   z-index: 10000;
@@ -434,6 +433,11 @@ header > div #burger-container #burger span {
   background-color: white;
   height: 5px;
   width: 68px;
+}
+header > div #burger-container #burger svg {
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 header > div #nav-container {
   background-color: white;

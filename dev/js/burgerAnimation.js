@@ -41,6 +41,7 @@ const burgerBtn = document.querySelector("#burger-container");
 gsap.set("#top-line", {transformOrigin:"left center", scaleX: 0.5});
 gsap.set("#middle-line", {transformOrigin:"center center"});
 gsap.set("#bottom-line", {transformOrigin:"right center", scaleX: 0.5});
+gsap.set("svg", {scale: 1, alpha: 0});
 
 
 let isMenuOpen = false;
@@ -54,12 +55,14 @@ burgerAnimation.from("#top-line, #bottom-line",{duration:0.25, scaleX:1, ease: "
 .to("#middle-line",{duration:0.25, rotation:-45, y:"-=2", ease: "back.out(1)", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
 .to("#bottom-line",{duration:0.25, rotation:45, y:"+=9", x:"-=10", ease: "back.out(1)", backgroundColor: "rgba(56, 17, 19, 1)"},"cross")
 .to("#splash", {duration: 0.25, scale: 3, blur:2, ease: "power1.out"}, "cross")
+.from("svg", {duration: 0.25, scale: 0, alpha: 1, ease: "power1.out"}, "cross")
 .addPause()
 .addLabel("closeMenu")
 .to("#top-line",{duration:0.25, rotation:0,y:"+=9", x:"-=10", ease: "back.out(1)", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
 .to("#middle-line",{duration:0.25, rotation:0, y:"+=2", ease: "back.out(1)", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
 .to("#bottom-line",{duration:0.25, rotation:0, y:"-=9", x:"+=10", ease: "back.out(1)", backgroundColor: "rgba(0, 0, 0, 0)"},"uncross")
 .to("#splash", {duration: 0.25, scale: 1, blur:0, ease: "power1.out"}, "uncross")
+// .from("svg", {duration: 0.25, scale: 0, alpha: 1, fill: "rgba(56, 17, 19, 1)", immediateRender: false , ease: "power1.out"}, "uncross")
 
 export function burgerActions(){
   burgerBtn.addEventListener("mouseenter",() =>{

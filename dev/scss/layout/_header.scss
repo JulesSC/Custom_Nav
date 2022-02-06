@@ -20,7 +20,6 @@ header{
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            grid-area: burger;
             padding: 2%;
             position:absolute;
             z-index: 10000;
@@ -38,6 +37,14 @@ header{
                     background-color: white;
                     height: 5px;
                     width: 68px;
+                }
+                svg{
+                    position:absolute;
+                    top: 0px;
+                    right: 0px;
+                    // opacity: 50%;
+                    // display: none;
+
                 }
             }
         }
