@@ -451,6 +451,7 @@ header > div #nav-container ul {
 }
 header > div #nav-container ul li {
   overflow: hidden;
+  width: 1000px;
   margin-bottom: 40px;
 }
 header > div #nav-container ul li a:link,
