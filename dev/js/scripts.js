@@ -1,5 +1,4 @@
 import { burgerActions } from "./burgerAnimation";
-
 import { menuListners } from "./menu"
 
 // var burgerButton = document.querySelector("#burger");
