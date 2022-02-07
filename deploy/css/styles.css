@@ -454,6 +454,7 @@ header > div #nav-container ul {
   padding: 4vw;
 }
 header > div #nav-container ul li {
+  height: 80px;
   overflow: hidden;
   width: 1000px;
   margin-bottom: 40px;
