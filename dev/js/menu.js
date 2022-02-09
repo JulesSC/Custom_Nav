@@ -8,7 +8,6 @@ console.log(links.length + " is the number of links in my nav-container");
 //   mySplitText = new SplitText(".nav-btns", { type: "words,chars" }),
 //   chars = mySplitText.chars; //an array of all the divs that wrap each character
 
-
 var buttons = document.querySelectorAll(".nav-btns");
 var tl = new gsap.timeline({paused:true});
 
@@ -16,13 +15,11 @@ export function menuListners (){
 
     console.log("working");
 
-  
     // console.log(buttons[0].parentElement.firstChild + " is first child");
 
     gsap.to(buttons[1],{alpha:0});
 
     for(var i = 0; i < buttons.length; i++){
-
         
         let tops = document.querySelectorAll(".top");
         // var top = buttons[i].firstChild;
