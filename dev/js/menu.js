@@ -38,27 +38,27 @@ export function menuListners (){
 
         // Should highlight the chars within both the previously defined top and bottom vars,
         // only logs chars in var = top
-        var mySplitText = new SplitText(top, bottom, { type: "words,chars" });
+        // var mySplitText = new SplitText(top, bottom, { type: "words,chars" });
 
         // highlights all characters in nav-btns
         // logs all chars four times over
         // var mySplitText = new SplitText("nav-btns", { type: "words,chars" });
         
-        console.log(mySplitText.chars);
+        // console.log(mySplitText.chars);
         
         // necessary to define chars but throws error thta chars is undef
-        chars = mySplitText.chars; //an array of all the divs that wrap each character
+        // chars = mySplitText.chars; //an array of all the divs that wrap each character
 
         // if line 41 worked, then chars themselves could be commanded without top or bottom preface
-        tl.to(chars, {duration:0.5, y:-65, ease: "power1.out", stagger: 0.01},"same");
+        // tl.to(chars, {duration:0.5, y:-65, ease: "power1.out", stagger: 0.01},"same");
 
         // since top and bottom and bottom target only hovered h4, chars or top or bottom are specified
         // tl.to(top.chars, {duration:0.5, y:-65, ease: "power1.out", stagger: 0.01},"same")
         // .to(bottom.chars, {duration:0.5, y:-65, ease: "power1.out", stagger: 0.01}, "same");
 
         // current working code for general hover
-        // tl.to(top, {duration:0.5, y:-65, ease: "power1.out"},"same")
-        // .to(bottom, {duration:0.5, y:-65, ease: "power1.out"}, "same");
+        tl.to(top, {duration:0.5, y:-65, ease: "power1.out"},"same")
+        .to(bottom, {duration:0.5, y:-65, ease: "power1.out"}, "same");
         
         button.addEventListener("mouseenter", () =>{
             console.log("enter");
