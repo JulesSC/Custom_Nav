@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(SplitText);
 
 // we need a refernce to all of the link <a>
@@ -6,14 +7,8 @@ let links = document.querySelectorAll("#nav-container a");
 console.log(links.length + " is the number of links in my nav-container");
 
 // var tl = gsap.timeline(),
-//   mySplitText = new SplitText(".nav-btns", { type: "words,chars" }),
+//   mySplitText = new SplitText(".nav-btns h4", { type: "words,chars" }),
 //   chars = mySplitText.chars; //an array of all the divs that wrap each character
-
-// var tl = gsap.timeline(),
-//   mySplitText = new SplitText("#quote", { type: "words,chars" }),
-//   chars = mySplitText.chars; //an array of all the divs that wrap each character
-
-// gsap.set("#quote", { perspective: 400 });
 
 // console.log(chars);
 
@@ -29,7 +24,6 @@ console.log(links.length + " is the number of links in my nav-container");
 // });
 
 var buttons = document.querySelectorAll("li");
-// var tl = new gsap.timeline({paused:true});
 
 export function menuListners (){
 
@@ -41,9 +35,31 @@ export function menuListners (){
         var bottom = buttons[i].children[0].children[1];
 
         var tl = new gsap.timeline({paused:true});
-        tl.to(top,{duration:0.5, y:-65, ease: "power1.out"},"same")
-        .to(bottom,{duration:0.5, y:-65, ease: "power1.out"}, "same");
 
+        // Should highlight the chars within both the previously defined top and bottom vars,
+        // only logs chars in var = top
+        var mySplitText = new SplitText(top, bottom, { type: "words,chars" });
+
+        // highlights all characters in nav-btns
+        // logs all chars four times over
+        // var mySplitText = new SplitText("nav-btns", { type: "words,chars" });
+        
+        console.log(mySplitText.chars);
+        
+        // necessary to define chars but throws error thta chars is undef
+        chars = mySplitText.chars; //an array of all the divs that wrap each character
+
+        // if line 41 worked, then chars themselves could be commanded without top or bottom preface
+        tl.to(chars, {duration:0.5, y:-65, ease: "power1.out", stagger: 0.01},"same");
+
+        // since top and bottom and bottom target only hovered h4, chars or top or bottom are specified
+        // tl.to(top.chars, {duration:0.5, y:-65, ease: "power1.out", stagger: 0.01},"same")
+        // .to(bottom.chars, {duration:0.5, y:-65, ease: "power1.out", stagger: 0.01}, "same");
+
+        // current working code for general hover
+        // tl.to(top, {duration:0.5, y:-65, ease: "power1.out"},"same")
+        // .to(bottom, {duration:0.5, y:-65, ease: "power1.out"}, "same");
+        
         button.addEventListener("mouseenter", () =>{
             console.log("enter");
             tl.restart();
@@ -55,28 +71,5 @@ export function menuListners (){
             tl.restart();
             tl.play();
         })
-});
-
-    // var linkContainer = document.querySelectorAll(".nav-btns");
-
-    // var tl = new gsap.timeline({paused:true});
-    // tl.to(".top",{duration:0.5, y:"-=65", ease: "power1.out"},"same");
-    // tl.to(".bottom",{duration:0.5, y:"-=65", ease: "power1.out"}, "same");
-
-    // links.forEach((link, i) => {
-    //     link.addEventListener("mouseenter", ()=>{
-    //         console.log("mouse enter");
-    //             // tl.restart();
-    //             // tl.play();
-    // //         gsap.to("h4.link",{duration:0.25, fontWeight:700, y:"-=80", onComplete: destoryTopLink});
-    //         gsap.to(links[i],{duration:0.25, fontWeight:700, y:"-=80"});
-    //     })
-
-    //     link.addEventListener("mouseleave", ()=>{
-    //         console.log("mouse leave");
-    //             // tl.restart();
-    //             // tl.play();
-    //         gsap.to(links[i],{duration:0.25, fontWeight:300, y:"-=80"});
-    //     })
-    // });
+    });
 }
