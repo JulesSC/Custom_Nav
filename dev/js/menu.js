@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+gsap.registerPlugin(SplitText);
 
 // we need a refernce to all of the link <a>
 let links = document.querySelectorAll("#nav-container a");
@@ -8,41 +9,53 @@ console.log(links.length + " is the number of links in my nav-container");
 //   mySplitText = new SplitText(".nav-btns", { type: "words,chars" }),
 //   chars = mySplitText.chars; //an array of all the divs that wrap each character
 
-var buttons = document.querySelectorAll(".nav-btns");
-var tl = new gsap.timeline({paused:true});
+// var tl = gsap.timeline(),
+//   mySplitText = new SplitText("#quote", { type: "words,chars" }),
+//   chars = mySplitText.chars; //an array of all the divs that wrap each character
+
+// gsap.set("#quote", { perspective: 400 });
+
+// console.log(chars);
+
+// tl.from(chars, {
+//   duration: 0.8,
+//   opacity: 0,
+//   scale: 0,
+//   y: 80,
+//   rotationX: 180,
+//   transformOrigin: "0% 50% -50",
+//   ease: "back",
+//   stagger: 0.01
+// });
+
+var buttons = document.querySelectorAll("li");
+// var tl = new gsap.timeline({paused:true});
 
 export function menuListners (){
 
     console.log("working");
 
-    // console.log(buttons[0].parentElement.firstChild + " is first child");
+    buttons.forEach((button, i) => {
+        // console.log(i);
+        var top = buttons[i].children[0].children[0];
+        var bottom = buttons[i].children[0].children[1];
 
-    gsap.to(buttons[1],{alpha:0});
+        var tl = new gsap.timeline({paused:true});
+        tl.to(top,{duration:0.5, y:-65, ease: "power1.out"},"same")
+        .to(bottom,{duration:0.5, y:-65, ease: "power1.out"}, "same");
 
-    for(var i = 0; i < buttons.length; i++){
-        
-        let tops = document.querySelectorAll(".top");
-        // var top = buttons[i].firstChild;
-        var bottom = buttons[i].parentElement.lastChild;
-
-        console.log(tops + " is top element");
-        // console.log(top + " is top element in array");
-
-        tl.to(tops[i],{duration:0.5, y:"-=65", ease: "power1.out"},"same");
-        tl.to(bottom,{duration:0.5, y:"-=65", ease: "power1.out"}, "same");
-        
-        buttons[i].addEventListener("mouseenter", () =>{
-        console.log("enter");
+        button.addEventListener("mouseenter", () =>{
+            console.log("enter");
             tl.restart();
             tl.play();
         })
-    
-        buttons[i].addEventListener("mouseleave", () =>{
+
+        button.addEventListener("mouseleave", () =>{
             console.log("leave");
             tl.restart();
             tl.play();
-            })
-        }
+        })
+});
 
     // var linkContainer = document.querySelectorAll(".nav-btns");
 
